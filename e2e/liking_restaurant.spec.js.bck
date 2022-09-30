@@ -1,0 +1,52 @@
+const assert = require('assert');
+
+Feature('liking restaurant');
+
+Before(({ I }) => {
+  I.amOnPage('/#/favorite');
+});
+
+Scenario('Empty favorite restaurants', ({ I }) => {
+  I.see('Favorite Restaurants', '.restaurant-list__title');
+  I.dontSeeElement('.restaurant-list__card-item');
+});
+
+Scenario('Liking one restaurants', async ({ I }) => {
+  I.amOnPage('/');
+  I.seeElement('.card-item__heading a');
+
+  const firstRestaurants = locate('.card-item__heading a').first();
+  const titleFirstRestaurant = await I.grabTextFrom(firstRestaurants);
+  I.click(firstRestaurants);
+
+  I.seeElement('#favoriteButton');
+  I.click('#favoriteButton');
+
+  I.amOnPage('/#/favorite');
+  I.see(titleFirstRestaurant, '.restaurant-list__card-item');
+  const titleFavoriteRestaurants = await I.grabTextFrom(
+    locate('.card-item__heading a').first(),
+  );
+
+  assert.strictEqual(titleFirstRestaurant, titleFavoriteRestaurants);
+  I.click(locate('.card-item__heading a').first());
+  I.click('#favoriteButton');
+});
+
+Scenario('Unliking one restaurants', async ({ I }) => {
+  I.amOnPage('/');
+  I.seeElement('.card-item__heading a');
+  I.click('.card-item__heading a');
+
+  I.seeElement('#favoriteButton');
+  I.click('#favoriteButton');
+
+  I.amOnPage('/#/favorite');
+  I.seeElement('.restaurant-list__card-item');
+  I.click('.card-item__heading a');
+  I.seeElement('#favoriteButton');
+  I.click('#favoriteButton');
+
+  I.amOnPage('/#/favorite');
+  I.dontSeeElement('.restaurant-list__card-item');
+});

@@ -1,0 +1,385 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background-color: #d11d27;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+nav {
+  position: absolute;
+  width: 100%;
+  height: 64px;
+  display: flex;
+  z-index: 10;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+}
+
+.brand {
+  height: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+}
+
+.brand__icon {
+  height: 100%;
+}
+
+.brand__title {
+  width: 150px;
+  font-size: 20px;
+  font-weight: 700;
+  text-shadow: 2px 2px 15px rgba(0, 0, 0, 1);
+  color: #ffffff;
+  user-select: none;
+}
+
+.nav-links {
+  position: absolute;
+  width: 100%;
+  left: -1024px;
+  transition: transform 0.25s ease;
+  z-index: -10;
+}
+
+.nav-links.open {
+  transform: translate(1024px, 0);
+}
+
+.nav-links ul {
+  padding: 0;
+  margin: 0;
+  background-color: #f4f4f2;
+  padding-top: 64px;
+}
+
+.nav-links ul li {
+  list-style-type: none;
+}
+
+.nav-links__item {
+  display: block;
+  text-align: center;
+  height: 55px;
+  line-height: 55px;
+  text-decoration: none;
+  color: #495464;
+  font-size: 20px;
+}
+
+.nav-links__item:hover {
+  color: white;
+  background-color: #bbbfca;
+}
+
+.btn-navbar {
+  width: 64px;
+  height: 100%;
+  margin-left: auto;
+  margin-right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 40px;
+  text-shadow: 2px 2px 15px rgb(255, 255, 255);
+}
+
+.jumbotron {
+  height: 500px;
+  position: relative;
+  filter: grayscale(40%);
+}
+
+.jumbotron__image {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.jumbotron__text {
+  margin: 0;
+  color: #e8e8e8;
+  position: absolute;
+  top: 40%;
+  text-align: center;
+  width: 100%;
+  text-shadow: 0px 0px 20px #000000;
+}
+
+.jumbotron__title {
+  font-size: 40px;
+  font-weight: 700;
+  margin: 0;
+}
+
+.jumbotron__desc {
+  margin: 0;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.restaurant-list__title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: 700;
+  color: #d11d27;
+}
+
+.restaurant-list__message {
+  text-align: center;
+  height: 500px;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.restaurant-list__message__404 {
+  font-size: 15vw;
+  margin: 0;
+  font-weight: 600;
+}
+
+.restaurant-list__container-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.restaurant-list__card-item {
+  width: 80%;
+  border: 2px solid #495464;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+}
+
+.restaurant-list__card-item>*:not(.card-item__image) {
+  margin: 0 10px;
+}
+
+.restaurant-list__detail {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.restaurant-list__detail__like {
+  width: 60px;
+  height: 60px;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
+  border-radius: 50%;
+  background-color: #d11d27;
+  cursor: pointer;
+  border: none;
+}
+
+.restaurant-list__detail__wrapper {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin: 0 auto;
+}
+
+.restaurant-list__detail__name {
+  font-size: 25px;
+  font-weight: 600;
+  margin: 0;
+  margin-bottom: 15px;
+}
+
+.restaurant-list__detail__image {
+  width: 60%;
+  padding-right: 40px;
+}
+
+.restaurant-list__detail__information {
+  width: 40%;
+}
+
+.restaurant-list__detail__table {
+  display: flex;
+  flex-direction: column;
+}
+
+.restaurant-list__detail__table__item {
+  display: flex;
+  margin-bottom: 10px;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.restaurant-list__detail__table__item label {
+  width: 30%;
+  word-wrap: break-word;
+  color: rgba(0, 0, 0, 0.4);
+}
+
+.restaurant-list__detail__table__item span {
+  width: 70%;
+  word-wrap: break-word;
+}
+
+.restaurant-list__detail__menu {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.restaurant-list__detail__menu__item {
+  width: 50%;
+}
+
+.restaurant-list__detail__menu__item h4 {
+  margin: 0;
+}
+
+.restaurant-list__detail__menu__item ul {
+  padding: 0;
+}
+
+.restaurant-list__detail__menu__item li {
+  word-wrap: break-word;
+}
+
+.restaurant-list__detail__rating_overall {
+  font-size: 18px;
+  font-weight: 500;
+
+}
+
+.restaurant-list__detail__rating_overall p {
+  margin: 5px 0;
+}
+
+.restaurant-list__detail__rating__container {
+  margin: 10px 0;
+}
+
+.restaurant-list__detail__rating__card {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.4);
+  padding: 10px 0;
+}
+
+.restaurant-list__detail__rating__card:first-child {
+  border-top: 2px solid rgba(0, 0, 0, 0.4);
+}
+
+.restaurant-list__detail__rating__card__wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.restaurant-list__detail__rating__card__avatar {
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.restaurant-list__detail__rating__card__name {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.restaurant-list__detail__rating__card__review {
+  margin: 5px 0;
+  font-size: 17px;
+}
+
+.restaurant-list__detail__rating__card__date {
+  font-size: 13px;
+}
+
+.card-item__image {
+  width: 100%;
+  height: 250px;
+  background-color: rgb(211, 211, 211);
+  object-fit: cover;
+}
+
+.card-item__rating {
+  margin: 5px 0;
+}
+
+.card-item__rating span {
+  font-size: 15px;
+  padding: 2.5px 5px;
+  border-radius: 5px;
+}
+
+.card-item__heading {
+  margin: 10px 0;
+  font-size: 25px;
+}
+
+.card-item__heading a {
+  color: #000000;
+  display: inline-block;
+  min-width: 44px;
+  min-height: 44px;
+  text-decoration: none;
+}
+
+.card-item__heading a:hover {
+  text-decoration: underline;
+}
+
+.card-item__description {
+  margin: 0;
+}
+
+.card-item__location {
+  display: flex;
+  align-items: center;
+  margin-top: 10px !important;
+  margin-bottom: 20px !important;
+}
+
+.card-item__location img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+.bg-green {
+  color: white;
+  background-color: rgb(129, 201, 13);
+}
+
+.bg-yellow {
+  color: white;
+  background-color: rgb(255, 184, 0);
+}
+
+footer {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  text-align: center;
+  background-color: #d11d27;
+  font-weight: 500;
+  font-size: 20px;
+  color: white;
+}
